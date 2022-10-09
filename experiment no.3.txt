@@ -1,0 +1,74 @@
+Enter password: *****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 19
+Server version: 5.5.62 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql>  create database cars;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| cars               |
+| employee           |
+| mysql              |
+| performance_schema |
+| student            |
+| test               |
++--------------------+
+7 rows in set (0.00 sec)
+
+mysql> use database cars;
+ERROR 1049 (42000): Unknown database 'database'
+mysql> use  cars;
+Database changed
+mysql> create table model;
+ERROR 1113 (42000): A table must have at least 1 column
+mysql> create table model (year int(4),colour varchar(8),rate int(9);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> create table model (year int(4),colour varchar(8),rate int(9));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> desc model;
++--------+------------+------+-----+---------+-------+
+| Field  | Type       | Null | Key | Default | Extra |
++--------+------------+------+-----+---------+-------+
+| year   | int(4)     | YES  |     | NULL    |       |
+| colour | varchar(8) | YES  |     | NULL    |       |
+| rate   | int(9)     | YES  |     | NULL    |       |
++--------+------------+------+-----+---------+-------+
+3 rows in set (0.02 sec)
+
+mysql> insert into model(field,colour,rate)values('2000','blue','2000000')
+    -> insert into model(field,colour,rate)values('2000','blue','2000000');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'insert into model(field,colour,rate)values('2000','blue','2000000')' at line 2
+mysql> insert into model(year,colour,rate)values('2000','blue','2000000');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select *from model;
++------+--------+---------+
+| year | colour | rate    |
++------+--------+---------+
+| 2000 | blue   | 2000000 |
++------+--------+---------+
+1 row in set (0.00 sec)
+
+mysql> desc model;
++--------+------------+------+-----+---------+-------+
+| Field  | Type       | Null | Key | Default | Extra |
++--------+------------+------+-----+---------+-------+
+| year   | int(4)     | YES  |     | NULL    |       |
+| colour | varchar(8) | YES  |     | NULL    |       |
+| rate   | int(9)     | YES  |     | NULL    |       |
++--------+------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
